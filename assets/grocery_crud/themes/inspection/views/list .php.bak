@@ -1,0 +1,123 @@
+<?php //var_dump($list);
+//var_dump($columns);?>
+<style media="print" type="text/css">
+  @page { size: landscape; }
+</style>
+<style type="text/css">
+.dotted-field {
+   	border-bottom: 1px dashed #000 !important;
+   	padding: 0 20px 1px 20px;
+   	width: 100px;
+   	
+}
+</style>
+
+<div id="inspection-report" class="printArea container" style="width: 98%; background-color: #fff;">
+    <div class="row">
+            <div class="invoice-title">
+                <h3 align="center">Punjab State Seed Certification Authority</h3>
+                <h4 align="center">Inspection Register</h4>
+            </div>
+        
+    </div>
+    <!-- <div class="row pre-scrollable"> -->
+    <div class="col-md-12" style="padding-left: 0px; padding-right:0px; font-size: 14px;">
+    	<div class="col-md-8" style="padding-left: 0px; padding-right:0px">	  
+    		<div class="col-sm-6" style="padding-left: 0px; padding-right:0px">
+    			Season Name (Rabi / Kharif / Summer):
+    		</div>
+    		<div class="col-sm-6" style="padding-left: 0px; padding-right:0px">
+    			<span class="dotted-field">
+	    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    			<?php echo $list[0]->season; ?>
+	    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    		</span>
+	    	</div>
+	    </div>
+	    <div class="col-md-4" style="padding-left: 0px; padding-right:0px">
+	    	<div class="col-sm-4">No:</div>
+
+	    </div>
+	   
+    </div>
+    <div class="col-md-12" style="font-size: 14px; padding-left: 0px; padding-right:0px;">
+    	<div class="col-md-8" style="padding-left: 0px; padding-right:0px">	  
+    		<div class="col-sm-6" style="padding-left: 0px; padding-right:0px">
+    			Seed Producer Organisation Name:
+    		</div>
+    		<div class="col-sm-6" style="padding-left: 0px; padding-right:0px">		
+	    		<span class="dotted-field">	
+	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    		<?php echo $list[0]->{$columns[1]->field_name}; ?>
+	    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    		</span>
+    		</div>
+    	</div>
+    	<div class="col-md-4" style="padding-left: 0px; padding-right:0px">
+	    	<span class=" text-right" align="right">
+	    		Date: 
+	    		<span class="dotted-field">
+	    			<?php echo date('j F Y'); ?>
+	    		</span>
+	    	</span>
+
+	    </div>
+    </div>
+		
+    <br> <br><br>
+    <div class="row" style="font-size: 13px;">
+    	<table class="table table-bordered">
+    		<thead>
+    			<tr>
+    				<th style="vertical-align: bottom; padding: 2px" align="left">Sr No.</th>	
+    				<?php 
+    				foreach($columns as $column){
+    					if(($column->display_as == 'Seed Producer') || ($column->display_as == 'Season') ){
+    						continue;
+    					}
+    					?>
+						<th align="left"><?php echo $column->display_as; ?></th>
+				<?php 	
+					}?>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<?php 
+    			$row_count = 1;
+    			foreach($list as $num_row => $row){ ?>
+				<tr id='row-<?php echo $num_row?>'>
+					<td style="padding: 2px"><?php echo $row_count;?></td>
+					<?php 
+					foreach($columns as $column){
+
+						if(($column->display_as == 'Seed Producer') || ($column->display_as == 'Season') ){
+    						continue;
+    					}
+    					
+    					?>
+						<td style="padding: 2px"><?php 
+							if($column->field_name == 'reserved_distance_correct') {
+								if($row->reserved_distance_correct == 'No') {
+									echo $row->reserved_distance_correct.'<br>';
+									echo $row->reserved_distance_deducted;
+								} else {
+									echo $row->reserved_distance_correct;
+								}
+								//continue;
+							}
+							else {	
+								echo $row->{$column->field_name};
+							}
+						?></td>
+					<?php 
+						
+					}
+					$row_count++;
+					?>
+				</tr>
+				<?php }?>
+    		</tbody>
+    	</table>
+    </div>
+    <br><br>
+</div>
