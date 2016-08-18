@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title> Phd Topic : Intrusion Detection in Clould Environment - A Multiple Threshold Algorithmic Approach </title>
+	<title> Phd Topic : X-X </title>
 
 	<style type="text/css">
 
@@ -68,16 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Phd Topic : Intrusion Detection in Clould Environment - A Multiple Threshold Algorithmic Approach</h1>
+	<h1>X</h1>
 
 	<div id="body">
-		<p>Reseach Scholar Baldev Singh </p>
+		<p>Reseach Scholar X </p>
 
 		<p>Reg No: 1114016</p>
-		<code>Subject : Applied Science (Computer Applications ) </code>
+		<code>Subject : AX </code>
 
-		<p>Supervisor : Dr. S. N . Panda </p>
-		<code>Co-Supervisor : Dr. G . S . Samra </code>
+		<p>Supervisor : X. PX </p>
+		<code>Co-Supervisor : Dr. </code>
 
 		<p> <a href="./admin/">Administation Login</a></p>
 	</div>

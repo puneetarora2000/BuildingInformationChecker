@@ -52,6 +52,7 @@
     <script type="text/javascript">
      var asset_url = "<?php echo $asset_url;?>";
     </script> -->
+    <script src="<?php echo site_url('assets/sbadmin/bower_components/jquery/dist/jquery.min.js');?>"></script>
 <?php echo $before_head;?>
 </head>
 <body>

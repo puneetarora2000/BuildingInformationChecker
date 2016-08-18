@@ -12,7 +12,7 @@ $config['site'] = array(
 	// (set empty then MY_Controller will automatically generate one according to controller / action)
 	'title' => '',
 
-	'email' => 'Raninder@gmail.com',
+	'email' => 'RaninderD@gmail.com',
 
 	'phone' => '+1 16722970033',
 
@@ -32,7 +32,7 @@ $config['site'] = array(
 		),
 
 		'data' => array(
-			'name'		=> 'Master Data',
+			'name'		=> 'Pre-Feed Data',
 			'url'		=> 'admin/data',
 			'children'  => array(
 				'Modules'=>'admin/data/modules', 
@@ -53,14 +53,15 @@ $config['site'] = array(
 			'url'		=> 'admin/data/rules',
 		//	'icon'		=> 'ion ion-gear-b',	// use non-FontAwesome icon (with "icon" class to align styling)
 		'children'  => array(
+				'Reference IS Code Book'	=> 'admin/data/iscodebook',
 				'Rule Set'	=> 'admin/data/ruleset',
 				'Rule Types'	=> 'admin/data/ruletype',
 				'Rule Names'	=> 'admin/data/rule',
-				'Rule Input Parameters' => 'admin/data/ruleinputparameters',
-				'Condition Script'=>'admin/data/condition_script',
-				'Consequence Script'=>'admin/data/consequence_script',
-				'Make & Export Ruleset'=>'admin/data/exportall',
-				'Backup'=>'admin/data/takeBackup',
+				'Rule Construction' => 'admin/data/ruleinputparameters',
+				//'Condition Script'=>'admin/data/condition_script',
+				//'Consequence Script'=>'admin/data/consequence_script',
+				'Export Ruleset'=>'admin/data/exportrules',
+				'DataBackup'=>'admin/data/takeBackup',
 			)
 
 		),

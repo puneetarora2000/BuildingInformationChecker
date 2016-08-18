@@ -4,7 +4,7 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
-    <script src="<?php echo site_url('assets/sbadmin/bower_components/jquery/dist/jquery.min.js');?>"></script>
+    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo site_url('assets/sbadmin/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
