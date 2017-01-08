@@ -29,7 +29,7 @@ class Front extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "About US";
+        $data['title'] = "About Us";
         $data['view'] = 'front/about';
         
         $this->load->view("front/index", $data);
@@ -38,7 +38,7 @@ class Front extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Information";
+        $data['title'] = "Information Rule Engine";
         $data['view'] = 'front/info';
         
         $this->load->view("front/index", $data);
@@ -47,7 +47,7 @@ class Front extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Contact PSSCA";
+        $data['title'] = "Contact Rule Engine";
         $data['view'] = 'front/contact';
         
         $this->load->view("front/index", $data);
@@ -82,15 +82,7 @@ class Front extends MY_Controller
         
         $this->load->view("front/index", $data);
     }
-     public function fees()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Fees  / Certification Charges";
-        $data['view'] = 'front/fees';
-        
-        $this->load->view("front/index", $data);
-    }
+   
      public function organisation()
     {
         $this->load->model('employee_model', 'emp');
@@ -121,28 +113,8 @@ class Front extends MY_Controller
         
         $this->load->view("front/index", $data);
     }
-     public function crops()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Crops List";
-        $data['view'] = 'front/crops';
-
-        $this->load->model('Crop_model', 'crop');
-        $data['divisible_crops'] = $this->crop->where('isDivisible', 1)->get_all();
-        $data['indivisible_crops'] = $this->crop->where('isDivisible', 0)->get_all();
-        
-        $this->load->view("front/index", $data);
-    }
-    public function achievements()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Achievements of PSSCA";
-        $data['view'] = 'front/achievements';
-        
-        $this->load->view("front/index", $data);
-    }
+    
+    
     public function activities()
     {
         $data['metad']="";
@@ -152,20 +124,13 @@ class Front extends MY_Controller
         
         $this->load->view("front/index", $data);
     }
-    public function tenders()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Tenders";
-        $data['view'] = 'front/tenders';
-        
-        $this->load->view("front/index", $data);
-    }
+    
+
     public function downloads()
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Downloads";
+        $data['title'] = "Downloads/Rule Engine";
         $data['view'] = 'front/downloads';
         
         $this->load->view("front/index", $data);
@@ -174,7 +139,7 @@ class Front extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Procedure / Guidelines";
+        $data['title'] = "Procedure /Rule Engine Guidelines";
         $data['view'] = 'front/procedure';
         
         $this->load->view("front/index", $data);

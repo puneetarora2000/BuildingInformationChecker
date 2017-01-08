@@ -24,21 +24,7 @@ class Data extends Admin_Controller
   {
     
   }
-  /*
-  public function tests()
-  {
-    $this->data['page_title'] = 'Seed Sample Tests';
-    $crud = new grocery_CRUD();
-    $crud->set_table('sampletests');
-    $crud->set_subject('Seed Sample Test');
-
-    $crud->unset_texteditor('TestDescription', 'full_text');
-
-    $this->data['crud_type'] = 'sampletests';
-    $this->data['output'] = $crud->render();
-
-    $this->render('admin/crud_view');
-  }*/
+   
 
   public function iscodebook(){
 
@@ -88,7 +74,7 @@ class Data extends Admin_Controller
   public function issuetypes(){
 
 
-    $this->data['page_title'] = 'Issue While Checking Model';
+    $this->data['page_title'] = 'Issue While Checking Rule Engine Working';
     $crud = new grocery_CRUD();
     $crud->set_table('issuetypes');
 
@@ -475,10 +461,6 @@ public function freez()
       $this->data['tabledata'] = $data;
     }
 
-
-
-
-
     //$this->data['crud_type'] = 'ruleinputparameters';
    // $this->data['output'] = $crud->render();
    
@@ -582,7 +564,7 @@ public function ruleinputparameters()
 
 public function ruleoperators()
   {
-    $this->data['page_title'] = 'ruleoperators Table';
+    $this->data['page_title'] = 'Rule operators Table';
     $crud = new grocery_CRUD();
     $crud->set_table('ruleoperators');
     $crud->order_by('RuleOperatorsID','desc'); 

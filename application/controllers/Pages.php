@@ -51,7 +51,7 @@ class Pages extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Contact PSSCA";
+        $data['title'] = "Contact Rule Engine ";
         $data['view'] = 'pages/contact';
         
         $this->load->view("pages/index", $data);
@@ -69,7 +69,7 @@ class Pages extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Service Rules";
+        $data['title'] = "Rule Engine Rules";
         $data['view'] = 'pages/servicerules';
 
         $query = $this->db->get('service_rules');
@@ -81,7 +81,7 @@ class Pages extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Guidelines";
+        $data['title'] = "Guidelines Rule Engine";
         $data['view'] = 'pages/guidelines';
         
         $this->load->view("pages/index", $data);
@@ -90,7 +90,7 @@ class Pages extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Fees  / Charges";
+        $data['title'] = "Rule Engine Fees  / Charges";
         $data['view'] = 'pages/fees';
         
         $this->load->view("pages/index", $data);
@@ -101,7 +101,7 @@ class Pages extends MY_Controller
 
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "Organisation";
+        $data['title'] = "Rule Engine Organisation";
         $data['view'] = 'pages/organisation';
 
             
@@ -116,29 +116,12 @@ class Pages extends MY_Controller
     {
         $data['metad']="";
         $data['metak']="";
-        $data['title'] = "PSSCA Testing Labs";
+        $data['title'] = "Rule Engine   Labs";
         $data['view'] = 'pages/testinglabs';
         
         $this->load->view("pages/index", $data);
     }
-     public function crops()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Crops List";
-        $data['view'] = 'pages/crops';
-        
-        $this->load->view("pages/index", $data);
-    }
-    public function achievements()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Achievements of PSSCA";
-        $data['view'] = 'pages/achievements';
-        
-        $this->load->view("pages/index", $data);
-    }
+    
     public function activities()
     {
         $data['metad']="";
@@ -148,15 +131,7 @@ class Pages extends MY_Controller
         
         $this->load->view("pages/index", $data);
     }
-    public function tenders()
-    {
-        $data['metad']="";
-        $data['metak']="";
-        $data['title'] = "Tenders";
-        $data['view'] = 'pages/tenders';
-        
-        $this->load->view("pages/index", $data);
-    }
+    
     public function downloads()
     {
         $data['metad']="";

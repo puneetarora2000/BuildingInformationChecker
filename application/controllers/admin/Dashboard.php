@@ -11,7 +11,7 @@ class Dashboard extends Admin_Controller
   public function index()
   {
   	//var_dump($this->ion_auth->user()->row());
-  	$this->data['page_title'] = 'Krishna Internation Admin Panel';
+  	$this->data['page_title'] = 'Rule Engine Admin Panel';
     $this->render('admin/dashboard_view');
   }
 }

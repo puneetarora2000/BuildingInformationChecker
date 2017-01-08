@@ -47,7 +47,7 @@ class Auth extends CI_Controller {
 	// log the user in
 	function login()
 	{
-		$this->data['title'] = "Login";
+		$this->data['title'] = "Login Please ";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -97,7 +97,7 @@ class Auth extends CI_Controller {
 	// log the user out
 	function logout()
 	{
-		$this->data['title'] = "Logout";
+		$this->data['title'] = "Logout Please ";
 
 		// log the user out
 		$logout = $this->ion_auth->logout();
@@ -411,7 +411,7 @@ class Auth extends CI_Controller {
 	// create a new user
 	function create_user()
     {
-        $this->data['title'] = "Create User";
+        $this->data['title'] = "Create Rule Engine User";
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
         {
