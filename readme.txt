@@ -1,7 +1,7 @@
 ##################################################################################################################
-This webapp developed for the use of Punjab State Seed Certification Authority in its office.
+This webapp developed for the use of   Rule Engine for Building Information Systems  in its office.
 The overall system is developed using the MVC approach with the Codeigniter Framework. 
-The complete source code and the data associated is the property of PSSCA Mohali.
+The complete source code and the data associated is the property of  XYZ.
 ##################################################################################################################
 
 Steps to configure this webbapp on linux based server.
