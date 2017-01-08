@@ -22,7 +22,7 @@ class Pssca extends Admin_Controller
   }
   public function staff()
   {
-    $this->data['page_title'] = 'PSSCA Employees';
+    $this->data['page_title'] = 'Rule Engine Employees';
     $crud = new grocery_CRUD();
     $crud->set_table('employees');
 

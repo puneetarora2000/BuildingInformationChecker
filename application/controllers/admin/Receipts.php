@@ -76,7 +76,7 @@ class Receipts extends Admin_Controller
 	
 	public function performaa()
 	{
-	    $this->data['page_title'] = 'Receipts';
+	    $this->data['page_title'] = 'Receipts Rule Engine ';
 	    $crud = new grocery_CRUD();
 	    $crud->set_table('receipts');
 	    $crud->set_subject('Receipt');
@@ -159,7 +159,7 @@ class Receipts extends Admin_Controller
 
 	  public function performac()
 	  {
-	    $this->data['page_title'] = 'Receipts';
+	    $this->data['page_title'] = 'Receipts Rule Engine ';
 	    $crud = new grocery_CRUD();
 	    $crud->set_table('receipts');
 	    $crud->set_subject('Receipt');
