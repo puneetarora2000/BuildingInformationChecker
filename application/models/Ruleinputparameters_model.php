@@ -36,6 +36,21 @@ public function get_data($rid){
         return $this->db->where('RuleInputsVariableID', $rid)->get()->result();
     }
 
+    public function get_data4export(){
+        $this->db->select('ruleinputparameters.*, projects.ProjectName as ApplyOnProjectNameID, ruleset.name as ruleset_id,structureelements.StructureElementID as StructureElementName,structureattributes.StructureAttributeID as Ifc_Structure_AttributeName');
+        $this->db->from('ruleinputparameters');
+        $this->db->join('projects', 'ruleinputparameters.ApplyOnProjectNameID = projects.ProjectID');
+        $this->db->join('structureelements', 'ruleinputparameters.StructureElementID = structureelements.StructureElementID');
+        $this->db->join('structureattributes', 'ruleinputparameters.Ifc_Structure_Attribute = structureattributes.StructureAttributeID');
+        $this->db->join('ruleset', 'ruleinputparameters.ruleset_id = ruleset.ruleset_id');
+        $this->db->join('rule', 'ruleinputparameters.RuleID = rule.rule_id');
+        $this->db->order_by('ruleinputparameters.ApplyOnProjectNameID');
+         return $this->db->get()->result();
+       // return $this->db->where('RuleInputsVariableID', $rid)->get()->result();
+    }
+
+
+
 
 
 }
