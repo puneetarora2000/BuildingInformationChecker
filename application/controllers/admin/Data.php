@@ -28,21 +28,31 @@ class Data extends Admin_Controller
 
   public function iscodebook(){
 
-    $this->data['page_title'] = 'Issue While Checking Model';
+ 
+
+
+     $this->data['page_title'] = 'is code book';
     $crud = new grocery_CRUD();
     $crud->set_table('iscodebook');
-    $crud->set_subject('IS CODE BOOK');
+    $crud->set_subject('IS COde Book ');
+
+    $crud->required_fields('FilePath');
+
+
     $this->data['crud_type'] = 'iscodebook';
+   
+    $crud->set_field_upload('FilePath','assets/uploads/');
     $this->data['output'] = $crud->render();
+     
     $this->render('admin/crud_view');
-  }
+ }
 
   public function exportrules(){
 
         $this->load->dbutil();
         $this->load->helper('file');
         $this->load->helper('download');
-        $delimiter = "#";
+        $delimiter = ",";
         $newline = "\r\n";
         $filename = "ruleset.csv";
         #$query = "SELECT * FROM ruleinputparameters ";
@@ -219,7 +229,7 @@ public function ruletype()
 
 public function ruleoperator()
   {
-    $this->data['page_title'] = 'Rules Construction';
+    $this->data['page_title'] = 'Rules Construction Console';
      $crud = new grocery_CRUD();
     
     $crud->set_table('ruleinputparameters');
@@ -244,7 +254,8 @@ public function ruleoperator()
       $crud->display_as('RuleID','Rule Name');
       $crud->display_as('ApplyOnProjectNameID','ProjectName');
       $crud->set_relation('ApplyOnProjectNameID','projects','ProjectName'); 
-      $crud->set_relation('ruleset_id','ruleset','name');  
+      $crud->set_relation('ruleset_id','ruleset','name'); 
+
       $crud->set_relation('StructureElementID','structureelements','StructureElementName');    
       $crud->set_relation('Ifc_Structure_Attribute','structureattributes','StructureAttributesName'); 
 
@@ -267,9 +278,61 @@ public function ruleoperator()
 }
 
 
+public function structureelements()
+  {
+    $this->data['page_title'] = ' Rule Thresholds';
+     $crud = new grocery_CRUD();
+    
+    $crud->set_table('ruleinputparameters');
+    $crud->set_subject('Select Rule Condition Thresholds');
+    $crud->order_by('StructureElementID','desc'); 
+    $crud->edit_fields('StructureElementID');
+
+    $crud->columns('StructureElementID',
+          'Ifc_Structure_Attribute',
+          'ruleset_id',
+          'RuleID',
+          //'FORMULA',
+          'IS456_Structure_Attribute_Name',
+          'InputsVariableDocumentation',
+          'DataType',
+          'ApplyOnProjectNameID'          
+          );
+
+      $crud->display_as('InputsVariableDocumentation','Ifc-IS456 Semantic Mapping Documentation');
+      $crud->display_as('DataType','Input Variable DataType');
+      $crud->display_as('ruleset_id','Which RuleSet');
+      $crud->display_as('RuleID','Rule Name');
+      $crud->display_as('ApplyOnProjectNameID','ProjectName');
+      $crud->set_relation('ApplyOnProjectNameID','projects','ProjectName'); 
+      $crud->set_relation('ruleset_id','ruleset','name');  
+      $crud->set_relation('StructureElementID','structureelements','StructureElementName');    
+      $crud->set_relation('Ifc_Structure_Attribute','structureattributes','StructureAttributesName'); 
+
+    ##$state = $crud->getState();
+     $crud->unset_add()->unset_delete()->unset_back_to_list();
+//->unset_list()->unset_delete()
+    $crud->set_lang_string('update_success_message',
+     ' Data has been successfully Updated into the database.<br/>Please wait while you are redirecting to the list page.
+     <script type="text/javascript">
+      window.location = "'.site_url('admin/data/ruleinputparameters').'";
+     </script>
+     <div style="display:none">');
+
+
+    $this->data['crud_type'] = 'ruleinputparameters';
+    $this->data['output'] = $crud->render();
+    $this->render('admin/crud_view');
+ 
+
+}
+
+
+
+
 public function ruleThresholds()
   {
-    $this->data['page_title'] = '  Rule Thresholds';
+    $this->data['page_title'] = ' Rule Thresholds';
      $crud = new grocery_CRUD();
     
     $crud->set_table('ruleinputparameters');
@@ -317,6 +380,57 @@ public function ruleThresholds()
 }
 
 //OutputVariable
+
+public function freezrule()
+  {
+    $this->data['page_title'] = 'Edit Formula /Mathematical Expression String';
+     $crud = new grocery_CRUD();
+    
+    $crud->set_table('ruleinputparameters');
+    $crud->set_subject('Select OutputVariable for Rule');
+    $crud->order_by('StructureElementID','desc'); 
+    $crud->edit_fields('freezedFormula');
+
+    $crud->columns('StructureElementID',
+          'Ifc_Structure_Attribute',
+          'ruleset_id',
+          'RuleID',
+          //'FORMULA',
+          'IS456_Structure_Attribute_Name',
+          'InputsVariableDocumentation',
+          'DataType',
+          'ApplyOnProjectNameID'          
+          );
+
+      $crud->display_as('InputsVariableDocumentation','Ifc-IS456 Semantic Mapping Documentation');
+      $crud->display_as('DataType','Input Variable DataType');
+      $crud->display_as('ruleset_id','Which RuleSet');
+      $crud->display_as('RuleID','Rule Name');
+      $crud->display_as('ApplyOnProjectNameID','ProjectName');
+      $crud->set_relation('ApplyOnProjectNameID','projects','ProjectName'); 
+      $crud->set_relation('ruleset_id','ruleset','name');  
+      $crud->set_relation('StructureElementID','structureelements','StructureElementName');    
+      $crud->set_relation('Ifc_Structure_Attribute','structureattributes','StructureAttributesName'); 
+
+    ##$state = $crud->getState();
+     $crud->unset_add()->unset_delete();
+//->unset_list()->unset_delete()
+    $crud->set_lang_string('update_success_message',
+     ' Data has been successfully Updated into the database.<br/>Please wait while you are redirecting to the list page.
+     <script type="text/javascript">
+      window.location = "'.site_url('admin/data/ruleinputparameters').'";
+     </script>
+     <div style="display:none">');
+
+
+    $this->data['crud_type'] = 'ruleinputparameters';
+    $this->data['output'] = $crud->render();
+    $this->render('admin/crud_view');
+ 
+
+}
+
+
 
 public function OutputVariable()
   {
@@ -369,13 +483,14 @@ public function OutputVariable()
 
 public function ruleConstant()
   {
-    $this->data['page_title'] = 'Rules Constant';
+    $this->data['page_title'] = 'Edit Rules Constant';
      $crud = new grocery_CRUD();
     
     $crud->set_table('ruleinputparameters');
     $crud->set_subject('Select Operator for Rule');
     $crud->order_by('StructureElementID','desc'); 
     $crud->edit_fields('ruleConstant');
+    $crud->set_relation('RuleID','rule','rule_id'); 
 
     $crud->columns('StructureElementID',
           'Ifc_Structure_Attribute',
@@ -397,7 +512,7 @@ public function ruleConstant()
       $crud->set_relation('ruleset_id','ruleset','name');  
       $crud->set_relation('StructureElementID','structureelements','StructureElementName');    
       $crud->set_relation('Ifc_Structure_Attribute','structureattributes','StructureAttributesName'); 
-
+      
     ##$state = $crud->getState();
      $crud->unset_add()->unset_delete();
 //->unset_list()->unset_delete()
@@ -486,17 +601,18 @@ public function ruleinputparameters()
        
     //$crud->add_action('Thresholds', 'http://www.grocerycrud.com/assets/uploads/general/smiley.png', 'demo/action_smiley');  
     
-    $crud->add_action('RuleOperators', '' ,'admin/data/ruleoperator', 'edit_button btn btn-info');  
-   $crud->add_action('Constants', '' ,'admin/data/ruleConstant', 'btn btn-warning');
-    $crud->add_action('Thresholds', '' ,'admin/data/ruleThresholds', 'add_button btn btn-info');  
+    $crud->add_action('EditRuleOperator', '' ,'admin/data/ruleoperator', 'edit_button btn btn-info');  
+   $crud->add_action('EditConstants', '' ,'admin/data/ruleConstant', 'btn btn-warning');
+    $crud->add_action('EditThreshold', '' ,'admin/data/ruleThresholds', 'add_button btn btn-info');  
    
-    $crud->add_action('OutputParameters', '' ,'admin/data/OutputVariable', 'btn btn-success'); 
+    $crud->add_action('EditOutputParameter', '' ,'admin/data/OutputVariable', 'btn btn-success'); 
      
-    $crud->add_action('Freez', '' ,'admin/data/freez', 'btn btn-info'); 
+    $crud->add_action('EditFreezedFormula', '' ,'admin/data/freezrule', 'btn btn-info'); 
 
-   //$crud->set_rules('s_phone_mobile','s_phone_mobile','required|numeric');
-    
-    // $crud->set_relation('ad_country_id','country','c_name');
+    $crud->add_action('Edit-IFC-Element', '' ,'admin/data/structureelements', 'btn btn-info'); 
+
+
+ 
     $crud->required_fields('rule','name');
 
      $crud->columns('StructureElementID',
@@ -765,12 +881,10 @@ public function modelfiledb()
 
 
     $this->data['crud_type'] = 'modelfiledb';
-    
-    $crud->set_field_Upload('FilePath','assets/uploads/');
-
+   
+    $crud->set_field_upload('FilePath','assets/uploads/');
     $this->data['output'] = $crud->render();
-    
-      $crud->required_fields('FilePath');
+    $crud->required_fields('FilePath');
     $this->render('admin/crud_view');
   }
 
